@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="container"  id ="main-container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Gerer<b> Categorie</b></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a  (click)="onOpenModal(null,'add')"   class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Categorie</span></a>
+                 					
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    
+                    <th>Num Categorie</th>
+                    <th>Libellé Categorie</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cat of categories" >
+                   
+                    <td>{{cat.id_categorie}}</td>
+                    <td>{{cat.lib_categorie}}</td>
+                    <td>
+                        <a (click)="onOpenModal(cat, 'edit')"  class=" btn edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a (click)="onOpenModal(cat,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- add Modal HTML-->
+
+<div id="addModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #addForm="ngForm" (ngSubmit)="onAddCategorie(addForm)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Ajouter categorie</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <div class="form-group">
+                        <label>Libelle catégorie</label>
+                        <input  type="text" ngModel name="lib_categorie" class="form-control" required>
+                    </div>			
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_add" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input type="submit" [disabled]="addForm.invalid" class="btn btn-success" value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+	<!-- Edit Modal HTML -->
+	<div id="editModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form #editForm="ngForm">
+					<div class="modal-header">						
+						<h4 class="modal-title">Modifier Categorie</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+                    <input  type="hidden" ngModel="{{editCategorie.id_categorie}}" name="id_categorie" >
+                    <div class="modal-body">					
+                        <div class="form-group">
+                            <label>Libelle catégorie</label>
+                            <input  type="text" ngModel="{{editCategorie.lib_categorie}}" name="lib_categorie" class="form-control" required>
+                        </div>			
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" id="btn_annuler_edit" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <input type="submit" (click)="onEditCategorie(editForm.value)"  class="btn btn-success" value="Modfier">
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Delete Modal HTML -->
+<div id="deleteModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">						
+                    <h4 class="modal-title">Supprimer Categorie</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_delete" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input  (click)="onDeleteCategorie(deletedCategorie.id_categorie)"   type="submit" class="btn btn-danger" value="Supprimer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
