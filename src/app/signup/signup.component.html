@@ -1,0 +1,30 @@
+          <div class="login-page">
+        <div class="form">
+          <form name="f" > 
+        
+            <input type="text" placeholder="Nom"  name="nom"/>
+            <input type="text" placeholder="Prenom" name="prenom" />
+            <input type="email" placeholder="Courriel" name="email" />
+            <input type="password" id="password" placeholder="Mot de passe"  name="mdp"/>
+            <input type="password" id="password" placeholder="Verifier votre mot de passe" name="cmdp" />
+            <i class="fas fa-eye" onclick="show()"></i>
+            <input class=bt type="submit" id="b1" value="SIGN UP" >
+          </form>          
+         
+        </div>
+      </div>
+  
+    <script>
+      function show() {
+        var password = document.getElementById("password");
+        var icon = document.querySelector(".fas ");
+
+        // ========== Checking type of password ===========
+        if (password.type === "password") {
+          password.type = "text";
+        } else {
+          password.type = "password";
+        }
+      }
+    </script>
+  

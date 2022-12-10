@@ -1,10 +1,8 @@
 
 
 .table-wrapper {
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     margin-top: 60px;
-    margin-bottom: 30px ;
       border-collapse: collapse;
       font-size: 0.9em;
       border-radius: 5px 5px 0 0;
@@ -15,8 +13,8 @@
       
     height: fit-content;
     padding-bottom: 15px;
-    background: #000000;
-    color: #fff;
+    background: #fff;
+    color: rgb(0, 0, 0);
     padding: 16px 30px;
     margin: -20px -100px 10px;
     border-radius: 3px 3px 0 0;
@@ -72,7 +70,6 @@ table.table tr th {
 }
 table.table tr th:last-child {
     background-color: #009879;   
-    margin-block-end: auto;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
     background-color: #009879; 
@@ -101,7 +98,7 @@ table.table td a:hover {
     color: #2196F3;
 }
 table.table td a.edit {
-    color: #FFC107;
+    color: #36454F;
     float: right;
 }
 table.table td a.delete {
@@ -288,4 +285,3 @@ h3{ color :  #97BC62FF;
     .text-warning {
         color: #8a6d3b;
     }
- 

@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+<div class="container"  id ="main-container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Gerer<b> Factures</b></h2>
+                    <hr>    
+                </div>
+                <div class="col-sm-6">
+                    <a (click)="onOpenModal(null,'add')"   class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Facture</span></a>
+                </div>
+                <hr>
+            </div>
+      
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Fournisseur</th>
+                    <th>Produit</th>
+                    <th>Date facture</th>
+                    <th>Total HT</th>
+                    <th>Total TVA</th>
+                    <th>Total TTC</th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fac of factures" >
+                    <td>{{fac.fournisseur.nom_fournisseur}}</td>
+                    <td>{{fac.produit.lib_prd}}</td>
+                    <td>{{fac.dateFact}}</td>
+                    <td>{{fac.totalHT}}</td>
+                    <td>{{fac.totalTVA}}</td>
+                    <td>{{fac.totalTTC}}</td>
+                
+                   
+                    <td>
+                        <a (click)="onOpenModal(fac,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- add Modal HTML-->
+
+<div id="addModalfact" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #addFormfact="ngForm" (ngSubmit)="onAddFacture(addFormfact)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Ajouter Facture</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+           
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Choisir Fournisseur</label>
+                    <select class="form-select" ngModel name="fournisseur" class="form-control"  aria-label="Default select example" required>
+                        <option *ngFor="let f of fournisseurs" [ngValue]="f"> {{f.nom_fournisseur}} </option>
+                    </select>
+                </div>	
+                <div class="form-group">
+                    <label>Choisir Produits</label>
+                <select class="form-select" ngModel name="produit" class="form-control"  aria-label="Default select example" required>
+                    <option *ngFor="let p of produits" [ngValue]="p"> {{p.lib_prd}} </option>
+                </select>
+            </div>	
+                    <div class="form-group">
+                        <label>Date de facture</label>
+                        <input  type="date" ngModel name="dateFact" class="form-control" required>
+                    </div>				
+                 	
+               <div class="form-group">
+                    <label>Total  HT</label>
+                     <input  type="number" ngModel name="totalHT" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Total TVA</label>
+                    <input  type="number" ngModel name="totalTVA" class="form-control" required>
+                </div>	
+                <div class="form-group">
+                    <label>Total TTC </label>
+                    <input  type="number" ngModel name="totalTTC" class="form-control" required>
+                </div>		
+             </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_add_fact" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input type="submit" [disabled]="addFormfact.invalid" class="btn btn-success" value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Delete Modal HTML -->
+<div id="deleteModalfact" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>  
+                <div class="modal-header">						
+                    <h4 class="modal-title">Supprimer Facture</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <p>Etes vous sur de  suprrimer cet élement?</p>
+                    <p class="text-warning"><small>Cette  opération  peut etre annulée</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_delete_fact" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input  (click)="onDeleteFacture(deletedFacture.id)"   type="submit" class="btn btn-danger" value="Supprimer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

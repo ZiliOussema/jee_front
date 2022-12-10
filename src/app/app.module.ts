@@ -13,6 +13,12 @@ import { LaboratoireService } from './laboratoire/laboratoire.service';
 import { FournisseurComponentComponent } from './fournisseur/fournisseur-component/fournisseur-component.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FournisseurService } from './fournisseur/fournisseur.service';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { ProduitComponentComponent } from './Produit/produit-component/produit-component.component';
+import { CommandeComponentComponent } from './Commande/commande-component/commande-component.component';
+import { CommandeService } from './Commande/commande.service';
+import { FactureComponentComponent } from './Facture/facture-component/facture-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +26,11 @@ import { FournisseurService } from './fournisseur/fournisseur.service';
     LaboratoireComponentComponent,
     FournisseurComponentComponent,
     NavbarComponent,
+    SignupComponent,
+    LoginComponent,
+    ProduitComponentComponent,
+    CommandeComponentComponent,
+    FactureComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +38,7 @@ import { FournisseurService } from './fournisseur/fournisseur.service';
     HttpClientModule, 
     FormsModule
   ],
-  providers: [CategorieService,LaboratoireService,FournisseurService],
+  providers: [CategorieService,LaboratoireService,FournisseurService,CommandeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

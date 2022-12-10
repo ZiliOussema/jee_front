@@ -12,6 +12,7 @@ export class FournisseurComponentComponent implements OnInit {
   public fournisseurs : Fournisseur[] | undefined ; 
   public deletedFournisseur: Fournisseur =new Fournisseur()  ; 
   public editFournisseur: Fournisseur =new Fournisseur()  ; 
+  public  telephoneErrorMessage :  string="" ;  
   constructor (private fournisseurService: FournisseurService) {
    }
    ngOnInit(): void {

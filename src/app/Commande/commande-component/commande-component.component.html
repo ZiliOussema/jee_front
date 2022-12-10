@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+<div class="container"  id ="main-container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Gerer<b> Commandes</b></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a (click)="onOpenModal(null,'add')"   class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Commande</span></a>
+                </div>
+                <hr>
+            </div>
+      
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>fournisseur</th>
+                    <th>produit</th>
+                    <th>Quantité fournie</th>
+                    <th>Date commande</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cmd of commandes" >
+                  
+                    <td>{{cmd.fournisseur.nom_fournisseur}}</td>
+                    <td>{{cmd.produit.lib_prd}}</td>
+                    <td>{{cmd.quantiteFourni}}</td>
+                    <td>{{cmd.dateFourni}}</td>
+                
+                   
+                    <td>
+                        <a (click)="onOpenModal(cmd,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- add Modal HTML-->
+
+<div id="addModalcmd" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #addFormcmd="ngForm" (ngSubmit)="onAddCommande(addFormcmd)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Ajouter Commande</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <div class="form-group">
+                        <label>Choisir Fournisseur</label>
+                    <select class="form-select" ngModel name="fournisseur" class="form-control"  aria-label="Default select example" required>
+                        <option *ngFor="let  four of fournisseurs" [ngValue]="four">{{four.nom_fournisseur}} </option>
+                    </select>
+               </div>	
+                   
+               <div class="form-group">
+                    <label>Choisir Produit</label>
+                    <select class="form-select" ngModel name="produit" class="form-control"  aria-label="Default select example" required>
+                        <option *ngFor="let  prd of produits" [ngValue]="prd">{{prd.lib_prd}} </option>
+                    </select>
+                    <div class="form-group">
+                        <label>Quantité</label>
+                        <input  type="number" ngModel name="quantiteFourni" class="form-control" required>
+                    </div>	
+                    <div class="form-group">
+                        <label>Date de commande</label>
+                        <input  type="date" ngModel name="dateFourni" class="form-control" required>
+                    </div>
+                </div>
+             </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_add_prd" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input type="submit" [disabled]="addFormcmd.invalid" class="btn btn-success" value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Delete Modal HTML -->
+<div id="deleteModalcmd" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">						
+                    <h4 class="modal-title">Supprimer Commande</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <p>Etes vous sur de  suprrimer cet élement?</p>
+                    <p class="text-warning"><small>Cette  opération  peut etre annulée</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_delete_cmd" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input  (click)="onDeleteCommande(deletedCommande.id)"   type="submit" class="btn btn-danger" value="Supprimer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

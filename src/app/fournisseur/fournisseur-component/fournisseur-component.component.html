@@ -93,8 +93,6 @@
 
 
 
-
-
 	<!-- Edit Modal HTML -->
 	<div id="editModalfour" class="modal fade">
 		<div class="modal-dialog">
@@ -125,7 +123,7 @@
                     </div>
                     <div class="modal-footer">
                         <input type="button" id="btn_annuler_edit_four" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                        <input type="submit" (click)="onEditFournisseur(editFormfour.value)"  class="btn btn-success" value="Modfier">
+                        <input type="submit"  [disabled]="editFormfour.invalid"  (click)="onEditFournisseur(editFormfour.value)"  class="btn btn-success" value="Modfier">
                     </div>
 				</form>
 			</div>

@@ -1,0 +1,230 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+<div class="container"  id ="main-container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Gerer<b> Produit</b></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a (click)="onOpenModal(null,'add')"   class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Produit</span></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <hr>
+                    <div class="form-group">
+                        <label>Rechercher Catégorie</label>
+                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                            <option *ngFor="let  cat of categories" [ngValue]="cat">{{cat.lib_categorie}} </option>
+                        </select>
+                     </div>
+                </div>    
+               
+                <div class="col-sm-6">
+                    <hr>
+                    <div class="form-group">
+                        <label>Rechercher Fournisseur</label>
+                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                            <option *ngFor="let  four of fournisseurs" [ngValue]="four">{{four.nom_fournisseur}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6">
+                   
+                    <div class="form-group">
+                        <label>Rechercher Laboratoire</label>
+                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                            <option *ngFor="let  lab of laboratoires" [ngValue]="lab">{{lab.lib_labo}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+                
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Libellé</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Prix Livraison</th>
+                    <th>Date Ajout</th>
+                    <th>Laboratoire</th>
+                    <th>Catégorie</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of produits" >
+                  
+                    <td>{{p.lib_prd}}</td>
+                    <td>{{p.description_prd}}</td>
+                    <td>{{p.prix_prd}}</td>
+                    <td>{{p.prix_livr}}</td>
+                    <td>{{p.dateAjout_prd}}</td>
+                    <td>{{p.laboratoire.lib_labo}}</td>
+                    <td>{{p.categorie.lib_categorie}}</td>
+                   
+                    <td>
+                        <a (click)="onOpenModal(p, 'edit')"  class=" btn edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a (click)="onOpenModal(p,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- add Modal HTML-->
+
+<div id="addModalprd" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #addFormprd="ngForm" (ngSubmit)="onAddProduit(addFormprd)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Ajouter Produit</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <div class="form-group">
+                        <label>Libelle Produit</label>
+                        <input  type="text" ngModel name="lib_prd" class="form-control" required>
+                    </div>		
+                    <div class="form-group">
+                        <label>Description Produit</label>
+                        <textarea ngModel name="description_prd" class="form-control" required></textarea>
+                    </div>	
+                    <div class="form-group">
+                        <label>Prix Produit</label>
+                        <input  type="number" ngModel name="prix_prd" class="form-control" required>
+                    </div>	
+                    <div class="form-group">
+                        <label>Prix Livraison Produit</label>
+                        <input  type="number" ngModel name="prix_livr" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date Ajout Produit</label>
+                        <input  type="date" ngModel name="dateAjout_prd" class="form-control" required>
+                    </div>	
+                    <div class="form-group">
+                            <label>Choisir Laboratoire</label>
+                        <select class="form-select" ngModel name="laboratoire" class="form-control"  aria-label="Default select example" required>
+                            <option *ngFor="let  lab of laboratoires " [ngValue]="lab">{{lab.lib_labo}} </option>
+                        </select>
+                   </div>
+                   <div class="form-group">
+                        <label>Choisir Categorie</label>
+                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                            <option *ngFor="let  cat of categories" [ngValue]="cat">{{cat.lib_categorie}} </option>
+                        </select>
+                   </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_add_prd" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input type="submit" [disabled]="addFormprd.invalid" class="btn btn-success" value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+	<!-- Edit Modal HTML -->
+	<div id="editModalprd" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form #editForm="ngForm">
+					<div class="modal-header">						
+						<h4 class="modal-title">Modifier Produit</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+                    <input  type="hidden" ngModel="{{editProduit.id_prd}}" name="id_prd" >
+                    <div class="modal-body">					
+                        <div class="form-group">
+                            <label>Libelle Produit</label>
+                            <input  type="text"  ngModel="{{editProduit.lib_prd}}" name="lib_prd" class="form-control" required>
+                        </div>		
+                        <div class="form-group">
+                            <label>Description Produit</label>
+                            <textarea ngModel="{{editProduit.description_prd}}"  name="description_prd" class="form-control" required></textarea>
+                        </div>	
+                        <div class="form-group">
+                            <label>Prix Produit</label>
+                            <input  type="number" ngModel="{{editProduit.prix_prd}}" name="prix_prd" class="form-control" required>
+                        </div>	
+                        <div class="form-group">
+                            <label>Prix Livraison Produit</label>
+                            <input  type="number" ngModel="{{editProduit.prix_livr}}"  name="prix_livr" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date Ajout Produit</label>
+                            <input  type="date" ngModel="{{editProduit.dateAjout_prd}}"  name="dateAjout_prd" class="form-control" required>
+                        </div>	
+                        <div class="form-group">
+                            <label>Choisir Laboratoire</label>
+                            <select class="form-select" ngModel name="laboratoire" class="form-control"  aria-label="Default select example" required>
+                                <option *ngFor="let lab of laboratoires" [ngValue]="lab">{{lab.lib_labo}} </option>
+                            </select>
+                       </div>
+                       <div class="form-group">
+                        <label>Choisir Categorie</label>
+                        <select class="form-select" ngModel  name="categorie" class="form-control"  aria-label="Default select example" required>
+                            <option *ngFor="let  cat of categories" [ngValue]="cat">{{cat.lib_categorie}} </option>
+                        </select>
+                       </div>
+                    </div>
+                    
+                    
+                    <div class="modal-footer">
+                        <input type="button" id="btn_annuler_edit_prd" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <input type="submit" [disabled]="editForm.invalid" (click)="onEditProduit(editForm.value)"  class="btn btn-success" value="Modfier">
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Delete Modal HTML -->
+<div id="deleteModalprd" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">						
+                    <h4 class="modal-title">Supprimer Produit</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <p>Etes vous sur de  suprrimer cet élement?</p>
+                    <p class="text-warning"><small>Cette  opération  peut etre annulée</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_delete_prd" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input  (click)="onDeleteProduit(deletedProduit.id_prd)"   type="submit" class="btn btn-danger" value="Supprimer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
