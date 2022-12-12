@@ -25,6 +25,7 @@
 }
 .table-title .btn-group {
     float: right;
+    color: #009879;
 }
 .table-title .btn    {
     
@@ -284,4 +285,8 @@ h3{ color :  #97BC62FF;
     }
     .text-warning {
         color: #8a6d3b;
+    }
+    .btn-success {
+        color: #fff;
+        background-color:#009879;
     }

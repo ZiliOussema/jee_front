@@ -21,33 +21,43 @@
                 <div class="col-sm-6">
                     <hr>
                     <div class="form-group">
-                        <label>Rechercher Catégorie</label>
-                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                        <label>Rechercher Catégorie </label>
+                        <select class="form-select" ngModel (ngModelChange)="searchproductByCategorie(key2.value)" #key2="ngModel" name="categorie" class="form-control"  aria-label="Default select example" required >
+                            <option></option>
                             <option *ngFor="let  cat of categories" [ngValue]="cat">{{cat.lib_categorie}} </option>
                         </select>
                      </div>
                 </div>    
+                
                
                 <div class="col-sm-6">
                     <hr>
                     <div class="form-group">
                         <label>Rechercher Fournisseur</label>
-                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                        <select class="form-select"   ngModel (ngModelChange)="searchproductByFournisseur(key3.value)" #key3="ngModel"  class="form-control"  aria-label="Default select example" required>
+                           <option ></option> 
                             <option *ngFor="let  four of fournisseurs" [ngValue]="four">{{four.nom_fournisseur}} </option>
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-2"></div>
+                
                 <div class="col-sm-6">
                    
                     <div class="form-group">
                         <label>Rechercher Laboratoire</label>
-                        <select class="form-select" ngModel name="categorie" class="form-control"  aria-label="Default select example" required>
+                        <select class="form-select"  ngModel (ngModelChange)="searchproductByLaboratoire(key1.value)" #key1="ngModel"name="laboratoire" class="form-control"  aria-label="Default select example" required>
+                            <option></option>
                             <option *ngFor="let  lab of laboratoires" [ngValue]="lab">{{lab.lib_labo}} </option>
                         </select>
                     </div>
-                </div>
-                <div class="col-sm-2"></div>
+                    </div>
+              <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Rechercher  Produit  par  Libellé</label>
+                        <input  type="search" (ngModelChange)="searchproduct(key.value)" #key="ngModel"  ngModel name="key"  class="form-control" placeholder="saisir nom ....">
+                    </div>	  
+              </div>
+                
                 
             </div>
         </div>
@@ -74,7 +84,7 @@
                     <td>{{p.dateAjout_prd}}</td>
                     <td>{{p.laboratoire.lib_labo}}</td>
                     <td>{{p.categorie.lib_categorie}}</td>
-                   
+                  
                     <td>
                         <a (click)="onOpenModal(p, 'edit')"  class=" btn edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                         <a (click)="onOpenModal(p,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

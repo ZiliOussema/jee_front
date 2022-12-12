@@ -84,4 +84,15 @@ export class FactureComponentComponent implements OnInit {
      }
      );
    }
+
+ totalTVA :  number =0 ; 
+ totalHT :  number =0 ; 
+ resultat  : number=0 ; 
+ public calculTTC() 
+ {
+  this.resultat =  this.totalHT + this.totalTVA ; 
+ } 
+
+
+
 }

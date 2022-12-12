@@ -87,15 +87,15 @@
                  	
                <div class="form-group">
                     <label>Total  HT</label>
-                     <input  type="number" ngModel name="totalHT" class="form-control" required>
+                     <input  type="number"  [(ngModel)]="totalHT" (ngModelChange) ="calculTTC()" name="totalHT" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Total TVA</label>
-                    <input  type="number" ngModel name="totalTVA" class="form-control" required>
+                    <input  type="number"  [(ngModel)]="totalTVA" (ngModelChange) ="calculTTC()" name="totalTVA" class="form-control" required>
                 </div>	
                 <div class="form-group">
                     <label>Total TTC </label>
-                    <input  type="number" ngModel name="totalTTC" class="form-control" required>
+                    <input  type="number" disabled="true-" [ngModel]="resultat" #ctrl="ngModel"  name="totalTTC" class="form-control" required>
                 </div>		
              </div>
                 <div class="modal-footer">

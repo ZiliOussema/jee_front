@@ -16,6 +16,18 @@ export class ProduitService {
   {
    return this.http.get<Produit[]> (this.apiServerUrl+"/GetAllProduits"); 
   }
+  public getProduitByCategorie (id :  number) : Observable<Produit[]> 
+  {
+   return this.http.get<Produit[]> (this.apiServerUrl+"/GetProduitByCategorie/"+id); 
+  }
+  public getProduitByFournisseur (id :  number) : Observable<Produit[]> 
+  {
+   return this.http.get<Produit[]> (this.apiServerUrl+"/GetProduitByFournisseur/"+id); 
+  }
+  public getProduitByLaboratoire (id :  number) : Observable<Produit[]> 
+  {
+   return this.http.get<Produit[]> (this.apiServerUrl+"/GetProduitByLaboratoire/"+id); 
+  }
    
   public addProduit (produit : Produit) : Observable<Produit> 
   {

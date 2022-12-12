@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+<div class="container"  id ="main-containerfour">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Gerer<b> Pharmacien</b></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a  (click)="onOpenModalphar(null,'add')"   class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter pharmacien</span></a>
+                 					
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Prenom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>code postal</th> 
+                    <th>Date de  naissance</th>
+                   <th></th> 
+                
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let f of pharmaciens " >
+                   
+                    <td>{{f.prenom_phar}}</td>
+                    <td>{{f.nom_phar}}</td>
+                    <td>{{f.email_phar}}</td>
+                     <td>{{f.codePostal_phar}}</td> 
+                     <td>{{f.DateNaissance_phar}}</td>
+                   
+                   
+                    <td>
+                        <a (click)="onOpenModalphar(f, 'edit')"  class=" btn edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a (click)="onOpenModalphar(f,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- add Modal HTML-->
+
+<div id="addModalfour" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #addFormphar="ngForm" (ngSubmit)="onAddPharmacien(addFormphar)">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Ajouter Pharmacien</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label>prenom</label>
+                            <input  type="text" ngModel name="prenom_phar" class="form-control" required>
+                        </div>
+                        <label>Nom</label>
+                        <input  type="text" ngModel name="nom_phar" class="form-control" required>
+                    </div>		
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input  type="email" ngModel email="true"   name="email_phar" class="form-control" required>
+                    </div>
+                   	
+                    	
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_add_four" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input type="submit" [disabled]="addFormphar.invalid" class="btn btn-success" value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+	<!-- Edit Modal HTML -->
+	<div id="editModalfour" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form #editFormfour="ngForm">
+					<div class="modal-header">						
+						<h4 class="modal-title">Modifier Pharmacien</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+                    <input  type="hidden" ngModel="{{editPharmacien.id_phar}}" name="id_phar" >
+                    <div class="modal-body">					
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>prenom </label>
+                                <input  type="text" ngModel="{{editPharmacien.prenom_phar}}" name="prenom_phar" class="form-control" required>
+                            </div>	
+                            <label>Nom </label>
+                            <input  type="text" ngModel="{{editPharmacien.nom_phar}}" name="nom_phar" class="form-control" required>
+                        </div>	
+                        	
+                        <div class="form-group">
+                            <label>Email </label>
+                            <input  type="email" email="true" ngModel="{{editPharmacien.email_phar}}" name="email_phar" class="form-control" required>
+                        </div>	
+                                          	
+                        <div class="form-group">
+                            <label>Email </label>
+                            <input  type="Date" ngModel="{{editPharmacien.email_phar}}" name="email_phar" class="form-control" required>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label>Adresse </label>
+                            <input  type="text" ngModel="{{editPharmacien.adresse_phar }}" name="adresse_phar" class="form-control" required>
+                        </div>	 -->
+                        		
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" id="btn_annuler_edit_four" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <input type="submit" (click)="onEditPharmacien(editFormfour.value)"  class="btn btn-success" value="Modfier">
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Delete Modal HTML -->
+<div id="deleteModalfour" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">						
+                    <h4 class="modal-title">Supprimer Pharmacien</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_annuler_delete" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input  (click)="onDeletePharmacien(deletedPharmacien.id_phar)"   type="submit" class="btn btn-danger" value="Supprimer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

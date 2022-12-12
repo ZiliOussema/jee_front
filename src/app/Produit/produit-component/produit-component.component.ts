@@ -29,6 +29,54 @@ export class ProduitComponentComponent implements OnInit {
       this.getProduit() ; 
     
    }
+ 
+   public  searchproduct  (key : string) :  void{
+    const resultat   :Produit []= []; 
+    for(const produit  of  this.produits!)
+        { if(produit.lib_prd.toLowerCase().indexOf(key.toLowerCase())!==-1 )
+              {resultat.push(produit); }          
+        } 
+        this.produits = resultat ; 
+        if (resultat.length ===0 || !key )
+        {
+          this.getProduit() ; 
+        }
+        }
+        
+   public  searchproductByCategorie  ( cat: Categorie  ) :  void{
+    const resultat   :Produit []= []; 
+    for(const produit  of  this.produits!)
+        { if(produit.categorie.lib_categorie== cat.lib_categorie)
+              {resultat.push(produit); }          
+        } 
+        this.produits = resultat ; 
+        if (resultat.length ===0 || !cat )
+        {
+          this.getProduit() ; 
+        }
+        }
+  public  searchproductByFournisseur  ( f: Fournisseur  ) :  void{
+          this.produitService.getProduitByFournisseur(f.id_fournisseur).subscribe((response: Produit[]) => {
+            this.produits = response;})
+              if (this.produits!.length ===0 || !f )
+              {  
+                this.getProduit() ; 
+              }
+              }
+public  searchproductByLaboratoire  ( lab: Laboratoire  ) :  void{
+  const resultat   :Produit []= []; 
+   for(const produit  of  this.produits!)
+      { if(produit.laboratoire.lib_labo== lab.lib_labo)
+          {resultat.push(produit); }          
+     } 
+      this.produits = resultat ; 
+   if (resultat.length ===0 || !lab )
+      {
+       this.getProduit() ; 
+       }
+                      }
+
+
 
   public getProduit() : void
   { this.laboratoireService.getallLaboratoire().subscribe((responselab: Laboratoire[]) => {

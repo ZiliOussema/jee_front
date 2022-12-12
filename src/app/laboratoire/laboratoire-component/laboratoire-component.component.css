@@ -1,4 +1,7 @@
-
+.btn-success {
+    color: #fff;
+    background-color:#009879;
+}
 
 .table-wrapper {
     margin: auto;

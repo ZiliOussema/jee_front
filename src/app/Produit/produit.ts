@@ -1,4 +1,5 @@
 import { Categorie } from "../categorie/categorie";
+import { Fournisseur } from "../fournisseur/fournisseur";
 import { Laboratoire } from "../laboratoire/laboratoire";
 
 export class Produit {

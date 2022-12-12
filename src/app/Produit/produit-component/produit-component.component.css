@@ -1,5 +1,11 @@
-
-
+.form-control{
+    border-radius: 25px;
+    border-color: #009879;
+}
+.btn-success {
+    color: #fff;
+    background-color:#009879;
+}
 .table-wrapper {
     margin: auto;
     margin-top: 60px;
@@ -10,7 +16,7 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .table-title {      
-      
+  
     height: fit-content;
     padding-bottom: 15px;
     background: #fff;

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,9 @@ import { ProduitComponentComponent } from './Produit/produit-component/produit-c
 import { CommandeComponentComponent } from './Commande/commande-component/commande-component.component';
 import { CommandeService } from './Commande/commande.service';
 import { FactureComponentComponent } from './Facture/facture-component/facture-component.component';
+import { PharmacienComponentComponent } from './pharmacien/pharmacien-component/pharmacien-component.component';
 @NgModule({
+  
   declarations: [
     AppComponent,
     CategorieComponentComponent,
@@ -31,6 +33,7 @@ import { FactureComponentComponent } from './Facture/facture-component/facture-c
     ProduitComponentComponent,
     CommandeComponentComponent,
     FactureComponentComponent,
+    PharmacienComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,8 @@ import { FactureComponentComponent } from './Facture/facture-component/facture-c
     FormsModule
   ],
   providers: [CategorieService,LaboratoireService,FournisseurService,CommandeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+
 })
 export class AppModule { }
