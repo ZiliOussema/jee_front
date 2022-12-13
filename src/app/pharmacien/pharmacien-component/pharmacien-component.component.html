@@ -28,6 +28,7 @@
                     <th>Nom Utilisateur</th>
                     <th>code postal</th> 
                     <th>Date de  naissance</th>
+                    <th>Admin ou non </th>
                    <th></th> 
                 
                   
@@ -42,6 +43,7 @@
                     <td>{{phar.username}}</td>
                      <td>{{phar.codePostal_phar}}</td> 
                      <td>{{phar.DateNaissance_phar}}</td>
+                     <td>{{phar.admin}}</td>
 
                    
                    
@@ -147,7 +149,6 @@
                             <input  type="number"  ngModel="{{editPharmacien.codePostal_phar}}" name="codePostal_phar" class="form-control" required>
                         </div>	
                         	
-                                          	
                        
                         <div class="form-group">
                             <label>Date de naissance</label>
@@ -157,6 +158,8 @@
                             <label>Mot de  passe </label>
                             <input  type="password" ngModel="{{editPharmacien.password}}" name="password" class="form-control" required>
                         </div>
+                      	
+                        	
                         		
                     </div>
                     <div class="modal-footer">

@@ -7,28 +7,34 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/admin">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="fournisseur">Fournisseur</a>
+          <a class="nav-link" routerLink="/fournisseur">Fournisseur</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="produit" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" routerLink="/produit" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Produit
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
-            <a class="dropdown-item"  routerLink="categorie">Gérer Catégorie </a>
+            <a class="dropdown-item"  routerLink="/categorie">Gérer Catégorie </a>
             <div class="dropdown-divider"></div> 
-            <a class="dropdown-item" routerLink="laboratoire">Gérer Laboratoire </a>
+            <a class="dropdown-item" routerLink="/laboratoire">Gérer Laboratoire </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item"  routerLink="commande">Gérer Commande</a>
+            <a class="dropdown-item"  routerLink="/commande">Gérer Commande</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item"  routerLink="facture">Gérer facture</a>
+            <a class="dropdown-item"  routerLink="/facture">Gérer facture</a>
           </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/pharmacien">Pharmaciens</a>
+          </li>
+
       
       </ul>
      
     </div>
   </nav>
+
+

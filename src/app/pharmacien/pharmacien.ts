@@ -7,4 +7,5 @@ export class Pharmacien {
  DateNaissance_phar : Date = new Date () ; 
  password : string =""  ;
 username : string =""  ;
+admin : boolean =false ; 
 }

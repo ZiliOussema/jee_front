@@ -12,6 +12,7 @@ import { PharmacienService } from 'src/app/pharmacien/pharmacien.service';
 export class LoginComponentComponent implements OnInit {
  
  private pharmacien : Pharmacien | undefined; 
+ public  role : string |undefined; 
   
   constructor (private pharmacienService : PharmacienService , private router : Router) {
   }
@@ -24,10 +25,21 @@ export class LoginComponentComponent implements OnInit {
 
     this.pharmacienService.authentification(password!?.value , username!?.value).subscribe((response: Pharmacien) => {
        this.pharmacien = response;
+       localStorage.setItem("CurrentUser" , JSON.stringify(this.pharmacien)); 
+      
+       if(response != null) 
+       {alert("Bienvenue "+this.pharmacien.nom_phar); 
+       if(this.pharmacien.admin)
+       { this.router.navigate(["/Admin"]) ; 
+       }
+       else this.router.navigate(["/User"]) ;
+        }
+       else {alert("verifier vos champs" ) ;
+       this.router.navigate(["/login"]) ;
       }
-    ); 
-    alert("je suis connecte");      
+    }
 
+    ); 
 }
 
 }

@@ -1,12 +1,12 @@
 
 
 .table-wrapper {
-    margin: auto;
+ 
     margin-top: 60px;
       border-collapse: collapse;
       font-size: 0.9em;
       border-radius: 5px 5px 0 0;
-      width: fit-content;
+      width: max-content;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .table-title {      
@@ -16,7 +16,7 @@
     background: #fff;
     color: rgb(0, 0, 0);
     padding: 16px 30px;
-    margin: -20px -100px 10px;
+    
     border-radius: 3px 3px 0 0;
 }
 .table-title h2 {

@@ -1,0 +1,36 @@
+
+  <nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <a class="navbar-brand" routerLink="home">
+      <img src="assets/images/pharmacie_logo.png" content height="40" alt="Logo" loading="lazy" style="margin-top: -1px; margin-left: 20px " aria-controls="#picker-editor"> </a>
+ 
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/User">Home <span class="sr-only">(current)</span></a>
+        </li>
+       
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/fournisseur">Fournisseur</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/produit" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Produit
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item"  routerLink="/categorie">Gérer Catégorie </a>
+            <div class="dropdown-divider"></div> 
+            <a class="dropdown-item" routerLink="/laboratoire">Gérer Laboratoire </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"  routerLink="/commande">Gérer Commande</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"  routerLink="/facture">Gérer facture</a>
+          </div>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center"> <button type="button" class="btn   btn-primary btn-rounded me-3" aria-controls="#picker-editor">Log out</button> </div> 
+
+    </div>
+  </nav>

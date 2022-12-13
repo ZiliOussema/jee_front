@@ -1,0 +1,9 @@
+.img-thumbnail{
+    position: absolute;
+    top : 50% ; 
+    
+    }
+    a:active,a:hover{
+      background: #009879 ;
+      transition: .9s;
+    }
