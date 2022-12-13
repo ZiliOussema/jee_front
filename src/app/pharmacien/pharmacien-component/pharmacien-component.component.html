@@ -6,7 +6,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   
-<div class="container"  id ="main-containerfour">
+<div class="container"  id ="main-containerphar">
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
@@ -25,6 +25,7 @@
                     <th>Prenom</th>
                     <th>Nom</th>
                     <th>Email</th>
+                    <th>Nom Utilisateur</th>
                     <th>code postal</th> 
                     <th>Date de  naissance</th>
                    <th></th> 
@@ -33,18 +34,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let f of pharmaciens " >
+                <tr *ngFor="let phar of pharmaciens " >
                    
-                    <td>{{f.prenom_phar}}</td>
-                    <td>{{f.nom_phar}}</td>
-                    <td>{{f.email_phar}}</td>
-                     <td>{{f.codePostal_phar}}</td> 
-                     <td>{{f.DateNaissance_phar}}</td>
+                    <td>{{phar.prenom_phar}}</td>
+                    <td>{{phar.nom_phar}}</td>
+                    <td>{{phar.email_phar}}</td>
+                    <td>{{phar.username}}</td>
+                     <td>{{phar.codePostal_phar}}</td> 
+                     <td>{{phar.DateNaissance_phar}}</td>
+
                    
                    
                     <td>
-                        <a (click)="onOpenModalphar(f, 'edit')"  class=" btn edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a (click)="onOpenModalphar(f,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a (click)="onOpenModalphar(phar, 'edit')"  class=" btn edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a (click)="onOpenModalphar(phar,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
             </tbody>
@@ -58,7 +61,7 @@
 
 <!-- add Modal HTML-->
 
-<div id="addModalfour" class="modal fade">
+<div id="addModalphar" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form #addFormphar="ngForm" (ngSubmit)="onAddPharmacien(addFormphar)">
@@ -74,16 +77,31 @@
                         </div>
                         <label>Nom</label>
                         <input  type="text" ngModel name="nom_phar" class="form-control" required>
-                    </div>		
+                    </div>	
+                    <div class="form-group">
+                        <label>Nom utilisateur </label>
+                        <input  type="text"  ngModel name="username" class="form-control" required>
+                    </div>	
                     <div class="form-group">
                         <label>Email</label>
                         <input  type="email" ngModel email="true"   name="email_phar" class="form-control" required>
                     </div>
-                   	
+                    <div class="form-group">
+                        <label>Code  Postal </label>
+                        <input  type="number"  ngModel name="codePostal_phar" class="form-control" required>
+                    </div>	
+                    <div class="form-group">
+                        <label>Date de naissance</label>
+                        <input  type="date" ngModel name="DateNaissance_phar" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de  passe </label>
+                        <input  type="password" ngModel name="password" class="form-control" required>
+                    </div>
                     	
                 </div>
                 <div class="modal-footer">
-                    <input type="button" id="btn_annuler_add_four" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                    <input type="button" id="btn_annuler_add_phar" class="btn btn-default" data-dismiss="modal" value="Annuler">
                     <input type="submit" [disabled]="addFormphar.invalid" class="btn btn-success" value="Ajouter">
                 </div>
             </form>
@@ -97,10 +115,10 @@
 
 
 	<!-- Edit Modal HTML -->
-	<div id="editModalfour" class="modal fade">
+	<div id="editModalphar" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form #editFormfour="ngForm">
+				<form #editFormphar="ngForm">
 					<div class="modal-header">						
 						<h4 class="modal-title">Modifier Pharmacien</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -115,25 +133,35 @@
                             <label>Nom </label>
                             <input  type="text" ngModel="{{editPharmacien.nom_phar}}" name="nom_phar" class="form-control" required>
                         </div>	
+                        <div class="form-group">
+                            <label>Nom  utilisateur </label>
+                            <input  type="text"  ngModel="{{editPharmacien.username}}" name="username" class="form-control" required>
+                        </div>	
                         	
                         <div class="form-group">
                             <label>Email </label>
                             <input  type="email" email="true" ngModel="{{editPharmacien.email_phar}}" name="email_phar" class="form-control" required>
                         </div>	
-                                          	
                         <div class="form-group">
-                            <label>Email </label>
-                            <input  type="Date" ngModel="{{editPharmacien.email_phar}}" name="email_phar" class="form-control" required>
+                            <label>Code  Postal </label>
+                            <input  type="number"  ngModel="{{editPharmacien.codePostal_phar}}" name="codePostal_phar" class="form-control" required>
+                        </div>	
+                        	
+                                          	
+                       
+                        <div class="form-group">
+                            <label>Date de naissance</label>
+                            <input  type="date" ngModel="{{editPharmacien.DateNaissance_phar}}" name="DateNaissance_phar" class="form-control" required>
                         </div>
-                        <!-- <div class="form-group">
-                            <label>Adresse </label>
-                            <input  type="text" ngModel="{{editPharmacien.adresse_phar }}" name="adresse_phar" class="form-control" required>
-                        </div>	 -->
+                        <div class="form-group">
+                            <label>Mot de  passe </label>
+                            <input  type="password" ngModel="{{editPharmacien.password}}" name="password" class="form-control" required>
+                        </div>
                         		
                     </div>
                     <div class="modal-footer">
-                        <input type="button" id="btn_annuler_edit_four" class="btn btn-default" data-dismiss="modal" value="Annuler">
-                        <input type="submit" (click)="onEditPharmacien(editFormfour.value)"  class="btn btn-success" value="Modfier">
+                        <input type="button" id="btn_annuler_edit_phar" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <input type="submit" (click)="onEditPharmacien(editFormphar.value)"  class="btn btn-success" value="Modfier">
                     </div>
 				</form>
 			</div>
@@ -145,7 +173,7 @@
 
 
 	<!-- Delete Modal HTML -->
-<div id="deleteModalfour" class="modal fade">
+<div id="deleteModalphar" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -154,8 +182,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">					
-                    <p>Are you sure you want to delete these Records?</p>
-                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                    <p>Etes vous sur de  suprrimer cet élement?</p>
+                    <p class="text-warning"><small>Cette  opération  peut etre annulée</small></p>
                 </div>
                 <div class="modal-footer">
                     <input type="button" id="btn_annuler_delete" class="btn btn-default" data-dismiss="modal" value="Annuler">

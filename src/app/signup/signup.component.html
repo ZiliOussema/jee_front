@@ -9,10 +9,11 @@
             <input type="text" placeholder="Nom"  ngModel name="nom_phar" required/>
             <input type="text" placeholder="Prenom" ngModel name="prenom_phar" required/>
             <input type="email"  email="true" placeholder="Email" ngModel name="email_phar" required />
-            <input type="password" ngModel name="password" class="mdp" placeholder="Mot de passe" required  />
+            <input type="date"   placeholder="Date de naissance" ngModel name="DateNaissance_phar" required />
+             <input type="password" ngModel name="password" class="mdp" placeholder="Mot de passe" required  />
            
-             <i class="fas fa-eye"  id="show" onclick="show()"></i>
-            <input class=bt [disabled]="addFormphar.invalid" type="submit" id="b1" value="Creer Compte" >
+            <input [disabled]="addFormphar.invalid" type="submit" id="b1" value="Creer Compte" >
+            <a style="color: aliceblue" routerLink="/login">Vous Avez deja  un  compte? Cliquer pour s'authentifier!! </a>
           </form>          
          
         </div>

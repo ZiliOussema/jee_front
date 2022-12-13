@@ -37,5 +37,10 @@ export class PharmacienService {
   {
    return this.http.get<Pharmacien[]> (this.apiServerUrl+"/GetAllPharmaciens"); 
   }
+  public authentification (pass: string , mail:string) : Observable<Pharmacien> 
+  {
+   return this.http.get<Pharmacien> (this.apiServerUrl+"/GetAllPharmaciens/"+pass+"/"+mail); 
+  }
+
 
 }

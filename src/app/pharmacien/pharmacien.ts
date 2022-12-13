@@ -6,4 +6,5 @@ export class Pharmacien {
  codePostal_phar : number=0; 
  DateNaissance_phar : Date = new Date () ; 
  password : string =""  ;
+username : string =""  ;
 }

@@ -5,7 +5,9 @@ import { CommandeComponentComponent } from './Commande/commande-component/comman
 import { FactureComponentComponent } from './Facture/facture-component/facture-component.component';
 import { FournisseurComponentComponent } from './fournisseur/fournisseur-component/fournisseur-component.component';
 import { LaboratoireComponentComponent } from './laboratoire/laboratoire-component/laboratoire-component.component';
+import { LoginComponentComponent } from './login/login-component/login-component.component';
 import { ProduitComponentComponent } from './Produit/produit-component/produit-component.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {component :CategorieComponentComponent, path:'categorie' }, 
@@ -15,6 +17,9 @@ const routes: Routes = [
   {component :CommandeComponentComponent, path:'commande' },  
   {component :FactureComponentComponent, path:'facture' }, 
   {component :ProduitComponentComponent, path:'produit' }, 
+  {component :LoginComponentComponent, path:'login' }, 
+  {component :SignupComponent, path:'signup' }, 
+
 
   
 

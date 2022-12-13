@@ -28,7 +28,6 @@ export class PharmacienComponentComponent implements OnInit {
           ? 1
           : -1
       })
-      console.log('ph =',response)
       }
     );      
   }
@@ -55,13 +54,13 @@ export class PharmacienComponentComponent implements OnInit {
       button.click() ;  
     }
 
-    public onAddPharmacien (addFormfour : NgForm ): void {
+    public onAddPharmacien (addFormphar : NgForm ): void {
       document.getElementById('btn_annuler_add_phar')?.click() ; 
-      this.pharmacienService.addPharmacien(addFormfour.value).subscribe(
+      this.pharmacienService.addPharmacien(addFormphar.value).subscribe(
         (response : Pharmacien )=> {
           console.log(response) ; 
           this.getPharmacien() ; 
-          addFormfour.reset(); 
+          addFormphar.reset(); 
                  } 
       )
     }
