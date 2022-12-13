@@ -13,11 +13,19 @@ export class CategorieComponentComponent implements OnInit{
   public categories : Categorie[] | undefined ; 
   public deletedCategorie: Categorie =new Categorie()  ; 
   public editCategorie: Categorie =new Categorie()  ; 
+  public test : boolean | undefined ; 
   constructor (private categorieService: CategorieService) {
    }
    ngOnInit(): void {
-      this.getCategorie() ;  
+      this.getCategorie() ;
+    
+      if(localStorage.getItem("CurrentUser")==="admin")
+      {
+        this.test =true; 
+      }
+      else this.test= false;   
    }
+   
 
   public getCategorie() : void
   {

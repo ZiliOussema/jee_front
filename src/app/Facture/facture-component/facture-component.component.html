@@ -5,7 +5,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  
+
+<div *ngIf="test; else sinon"><app-navbar-admin ></app-navbar-admin>
+</div>
+<ng-template #sinon><app-navbar-user></app-navbar-user></ng-template>  
 <div class="container"  id ="main-container">
     <div class="table-wrapper">
         <div class="table-title">
@@ -42,10 +45,11 @@
                     <td>{{fac.totalTVA}}</td>
                     <td>{{fac.totalTTC}}</td>
                 
-                   
+                   <div  *ngIf="test">
                     <td>
                         <a (click)="onOpenModal(fac,'delete')" class=" btn delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
+                </div>
                 </tr>
             </tbody>
         </table>
@@ -108,9 +112,8 @@
 </div>
 
 
-
-
-
+</div>
+	
 
 
 
@@ -118,6 +121,7 @@
 
 
 	<!-- Delete Modal HTML -->
+<div *ngIf="test">
 <div id="deleteModalfact" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -138,4 +142,4 @@
         </div>
     </div>
 </div>
-
+</div>

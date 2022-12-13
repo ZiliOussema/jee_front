@@ -13,10 +13,16 @@ export class FournisseurComponentComponent implements OnInit {
   public deletedFournisseur: Fournisseur =new Fournisseur()  ; 
   public editFournisseur: Fournisseur =new Fournisseur()  ; 
   public  telephoneErrorMessage :  string="" ;  
+  public test : boolean | undefined ; 
   constructor (private fournisseurService: FournisseurService) {
    }
    ngOnInit(): void {
       this.getFournisseur() ;  
+      if(localStorage.getItem("CurrentUser")==="admin")
+      {
+        this.test =true; 
+      }
+      else this.test= false;
    }
 
   public getFournisseur() : void

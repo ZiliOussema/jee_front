@@ -18,11 +18,17 @@ export class CommandeComponentComponent implements OnInit {
     public commandes : Commande[] | undefined ; 
     public deletedCommande: Commande =new Commande()  ; 
     public editCommande: Commande =new Commande()  ; 
+    public test : boolean | undefined ; 
   
     constructor (private fournisseurService : FournisseurService , private commandeService :CommandeService ,  private produitService :ProduitService ) {
      }
      ngOnInit(): void {
         this.getCommande() ; 
+        if(localStorage.getItem("CurrentUser")==="admin")
+        {
+          this.test =true; 
+        }
+        else this.test= false;   
       
      }  
   

@@ -1,9 +1,131 @@
-.img-thumbnail{
-    position: absolute;
-    top : 50% ; 
-    
-    }
-    a:active,a:hover{
-      background: #009879 ;
-      transition: .9s;
-    }
+* {
+  padding: 0;
+  margin: 0;
+
+}
+.logo {
+  height: 100%;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  background: #085158;
+  height: 5.5rem;
+  padding: 0 1em 0 1em;
+  /* Feel free to use a different font */
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  flex: 0.5;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+.nav .item {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px 0 25px;
+  transition: 0.1s;
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  background-color: #05373c;
+  transition: 0.1s;
+}
+.dropdown-menu 
+{
+  background-color: #085158;
+  height: max-content;
+}
+/* Icon padding */
+.nav a i {
+  margin-right: 10px;
+}
+
+/* Denotes the active menu item */
+.active {
+  background-color: #05373c;
+  transition: 0.1s;
+}
+
+/* Mobile Menu Toggle */
+.toggle {
+  display: none;
+  position: fixed;
+  top: 34px;
+  right: 30px;
+  color: white;
+  font-size: 1.1em;
+  background-color: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Animation Easing */
+.animatedtoggle {
+  transition: all 0.1s ease;
+}
+/* Rotate Menu item on toggle*/
+.rotate {
+  transform: rotate(90deg);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Mobile menu breakpoint */
+@media screen and (max-width: 950px) {
+  .menu {
+    display: block;
+  }
+  .nav {
+    display: block;
+    height: fit-content;
+  }
+
+  .nav ul {
+    display: block;
+    margin-top: 1em;
+    padding-bottom: 1em;
+  }
+  .nav ul .item {
+    display: block;
+  }
+  .logo {
+    height: 88px;
+  }
+  .nav a {
+    height: 60px;
+    justify-content: start;
+  }
+  /* Display the toggle */
+  .toggle {
+    display: block;
+    background-color: transparent;
+    border: none;
+  }
+  /* Hide the primary nav */
+  ul.inactive {
+    display: none;
+  }
+}

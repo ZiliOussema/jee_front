@@ -1,0 +1,29 @@
+
+<div *ngIf="test; else sinon">
+    <app-navbar-admin ></app-navbar-admin>
+</div>
+<ng-template #sinon><app-navbar-user></app-navbar-user></ng-template>
+
+<div class="login-page">
+
+    <form class="form">
+        <form name="f" #editFormphar="ngForm" (ngSubmit)="EditPharmacien(editFormphar.value)"  > 
+     <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_jbaqxatm.json"  background="transparent"  speed="1"  style="  justify-content: center ; width:250px; height: 250px;"  loop  autoplay></lottie-player>
+     <input  type="hidden" ngModel="{{pharmacien?.id_phar}}" name="id_phar" >  
+     <input  type="hidden" ngModel="{{pharmacien?.admin}}" name="admin" >  
+          <input type="text" placeholder="{{pharmacien?.nom_phar}}"  ngModel="{{pharmacien?.nom_phar}}" name="nom_phar" required/>
+        <input type="text" placeholder="Prenom" ngModel="{{pharmacien?.prenom_phar}}" name="prenom_phar" required/>
+        <input type="email"  email="true" placeholder="Email" ngModel="{{pharmacien?.email_phar}}" name="email_phar" required />
+        <input type="date"   placeholder="Date de naissance" ngModel="{{pharmacien?.DateNaissance_phar}}" name="DateNaissance_phar" required />
+        <input type="number"   placeholder="Code  postal" ngModel="{{pharmacien?.codePostal_phar}}" name="codePostal_phar" required />
+        <input type="text"   placeholder="Nom Utilisateur" ngModel="{{pharmacien?.username}}" name="username" required />
+        <input type="password" ngModel="{{pharmacien?.password}}" name="password" class="mdp" placeholder="Mot de passe" required  />
+        
+        <input [disabled]="editFormphar.invalid" type="submit"  id="b1" value="Modifier Compte" >
+        </form>          
+   </form>
+  </div>
+
+
+
+  

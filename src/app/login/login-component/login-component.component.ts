@@ -17,7 +17,7 @@ export class LoginComponentComponent implements OnInit {
   constructor (private pharmacienService : PharmacienService , private router : Router) {
   }
   ngOnInit(): void {
-  //show() ; 
+    localStorage.clear(); 
   }
   public  authentification () : void
   {   const password = document.getElementById('password') as HTMLInputElement | null;
@@ -25,14 +25,15 @@ export class LoginComponentComponent implements OnInit {
 
     this.pharmacienService.authentification(password!?.value , username!?.value).subscribe((response: Pharmacien) => {
        this.pharmacien = response;
-       localStorage.setItem("CurrentUser" , JSON.stringify(this.pharmacien)); 
-      
+       localStorage.setItem("username",this.pharmacien.username); 
        if(response != null) 
        {alert("Bienvenue "+this.pharmacien.nom_phar); 
        if(this.pharmacien.admin)
-       { this.router.navigate(["/Admin"]) ; 
+       { localStorage.setItem("CurrentUser" ,"admin"); 
+        this.router.navigate(["/Admin"]) ; 
        }
-       else this.router.navigate(["/User"]) ;
+       else { localStorage.setItem("CurrentUser" ,"user");  
+       this.router.navigate(["/User"]) ;}
         }
        else {alert("verifier vos champs" ) ;
        this.router.navigate(["/login"]) ;

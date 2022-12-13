@@ -22,11 +22,16 @@ export class ProduitComponentComponent implements OnInit {
   public laboratoires : Laboratoire[] | undefined ; 
   public deletedProduit: Produit =new Produit()  ; 
   public editProduit: Produit =new Produit()  ; 
-
+  public test : boolean | undefined ; 
   constructor (private fournisseurService : FournisseurService , private produitService: ProduitService,private categorieService: CategorieService,  private laboratoireService: LaboratoireService ) {
    }
    ngOnInit(): void {
       this.getProduit() ; 
+      if(localStorage.getItem("CurrentUser")==="admin")
+      {
+        this.test =true; 
+      }
+      else this.test= false;   
     
    }
  

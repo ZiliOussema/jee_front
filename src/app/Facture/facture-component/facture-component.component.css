@@ -1,4 +1,7 @@
-
+.btn-success {
+    color: #fff;
+    background-color:#085158;
+}
 
 .table-wrapper {
     margin: auto;
@@ -25,7 +28,6 @@
 }
 .table-title .btn-group {
     float: right;
-    color: #009879;
 }
 .table-title .btn    {
     
@@ -41,7 +43,7 @@
 }
 .btn:hover
 {
-    background-color: #009879;
+    background-color: #05373c;
 }
 .table-title .btn i {
     float: left;
@@ -62,7 +64,7 @@ table.table tr th, table.table tr td {
 table.table tr th {
     width: auto;
     height: auto;
-    background-color: #009879;
+    background-color: #085158;
     color: #ffffff;
     font-size: 18px;
     text-align: center;
@@ -70,10 +72,10 @@ table.table tr th {
      font-family: sans-serif;
 }
 table.table tr th:last-child {
-    background-color: #009879;   
+    background-color: #085158;   
 }
 table.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #009879; 
+    background-color: #085158; 
 }
 table.table-striped.table-hover tbody tr:hover {
     background: #f5f5f5;
@@ -99,7 +101,7 @@ table.table td a:hover {
     color: #2196F3;
 }
 table.table td a.edit {
-    color: #36454F;
+    color: #FFC107;
     float: right;
 }
 table.table td a.delete {
@@ -285,8 +287,4 @@ h3{ color :  #97BC62FF;
     }
     .text-warning {
         color: #8a6d3b;
-    }
-    .btn-success {
-        color: #fff;
-        background-color:#009879;
     }

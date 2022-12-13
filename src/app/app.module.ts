@@ -20,6 +20,7 @@ import { UserComponent } from './user/user/user.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NavbarAdminComponent } from './navbarAdmin/navbar-admin/navbar-admin.component';
 import { NavbarUserComponent } from './navbarUser/navbar-user/navbar-user.component';
+import { UpdateUserComponent } from './updateUser/update-user/update-user.component';
 @NgModule({
   
   declarations: [
@@ -38,6 +39,7 @@ import { NavbarUserComponent } from './navbarUser/navbar-user/navbar-user.compon
     AdminComponent,
     NavbarAdminComponent,
     NavbarUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

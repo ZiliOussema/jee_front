@@ -12,6 +12,7 @@ import { LoginComponentComponent } from './login/login-component/login-component
 import { PharmacienComponentComponent } from './pharmacien/pharmacien-component/pharmacien-component.component';
 import { ProduitComponentComponent } from './Produit/produit-component/produit-component.component';
 import { SignupComponent } from './signup/signup.component';
+import { UpdateUserComponent } from './updateUser/update-user/update-user.component';
 import { UserComponent } from './user/user/user.component';
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
   {component :AdminComponent, path:'Admin',canActivate:[AuthentificationGuard]  },
   {component :UserComponent, path:'User',canActivate:[AuthentificationGuard]  },
   {component :PharmacienComponentComponent, path:'pharmacien' ,canActivate:[AuthentificationGuard]}, 
-
+  {component :UpdateUserComponent, path:'update',canActivate:[AuthentificationGuard]  }
 
   
 

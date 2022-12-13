@@ -17,10 +17,16 @@ export class FactureComponentComponent implements OnInit {
   public  factures: Facture[] | undefined ; 
   public produits : Produit[] | undefined ; 
   public deletedFacture: Facture =new Facture()  ; 
+  public test : boolean | undefined ; 
   constructor (private fournisseurService : FournisseurService ,private produitService :ProduitService ,  private factureService : FactureService ,) {
   }
   ngOnInit(): void {
      this.getFacture() ; 
+     if(localStorage.getItem("CurrentUser")==="admin")
+     {
+       this.test =true; 
+     }
+     else this.test= false;   
    
   }  
 

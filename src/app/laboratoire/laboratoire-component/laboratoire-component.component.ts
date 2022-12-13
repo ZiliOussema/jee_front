@@ -13,10 +13,16 @@ export class LaboratoireComponentComponent implements OnInit {
     public laboratoires : Laboratoire[] | undefined ; 
     public deletedLaboratoire: Laboratoire =new Laboratoire()  ; 
     public editLaboratoire: Laboratoire =new Laboratoire()  ; 
+    public test : boolean | undefined ; 
     constructor (private laboratoireService: LaboratoireService) {
      }
      ngOnInit(): void {
         this.getLaboratoire() ;  
+        if(localStorage.getItem("CurrentUser")==="admin")
+        {
+          this.test =true; 
+        }
+        else this.test= false;   
      }
   
     public getLaboratoire() : void
