@@ -9,7 +9,7 @@ import { Laboratoire } from './laboratoire';
 })
 export class LaboratoireService {
 
-  private apiServerUrl = environment.serverurl+"Laboratoires";
+  private apiServerUrl = "http://localhost:8081/"+"Laboratoires";
   constructor(private http: HttpClient) { }
 
   public getallLaboratoire () : Observable<Laboratoire[]> 

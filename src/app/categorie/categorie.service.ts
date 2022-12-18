@@ -8,7 +8,7 @@ import { Categorie } from './categorie';
   providedIn: 'root'
 })
 export class CategorieService {
-  private apiServerUrl = environment.serverurl+"Categories";  
+  private apiServerUrl = "http://localhost:8081/"+"Categories";  
   constructor(private http: HttpClient) { }
 
   public getallCategorie () : Observable<Categorie[]> 

@@ -10,7 +10,7 @@ import { Commande } from './commande';
 export class CommandeService {
 
 
-  private apiServerUrl = environment.serverurl+"Commandes_prd";
+  private apiServerUrl = "http://localhost:8081/"+"Commandes_prd";
   constructor(private http: HttpClient) { }
 
   public getallCommande () : Observable<Commande[]> 

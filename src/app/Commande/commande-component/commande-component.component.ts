@@ -41,7 +41,7 @@ export class CommandeComponentComponent implements OnInit {
           this.commandes = response;  
         this.commandes.sort((a, b) => {  
           return a.id>= b.id
-            ? 1
+            ? 1 
             : -1
         })
         }

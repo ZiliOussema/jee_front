@@ -9,7 +9,7 @@ import { Pharmacien } from './pharmacien';
 })
 export class PharmacienService {
 
-  private apiServerUrl = environment.serverurl+"Pharmaciens";  
+  private apiServerUrl = "http://localhost:8081/"+"Pharmaciens";  
   constructor(private http: HttpClient) { }
 
   

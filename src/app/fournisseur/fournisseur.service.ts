@@ -8,7 +8,7 @@ import { Fournisseur } from './fournisseur';
   providedIn: 'root'
 })
 export class FournisseurService {
-  private apiServerUrl = environment.serverurl+"Fournisseur";  
+  private apiServerUrl = "http://localhost:8081/"+"Fournisseur";  
   constructor(private http: HttpClient) { }
 
   public getallFournisseur () : Observable<Fournisseur[]> 

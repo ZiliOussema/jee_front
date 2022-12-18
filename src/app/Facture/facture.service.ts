@@ -8,7 +8,7 @@ import { Facture } from './facture';
   providedIn: 'root'
 })
 export class FactureService {
-  private apiServerUrl = environment.serverurl+"Facture";
+  private apiServerUrl = "http://localhost:8081/"+"Facture";
   constructor(private http: HttpClient) { }
 
   public getallFacture () : Observable<Facture[]> 

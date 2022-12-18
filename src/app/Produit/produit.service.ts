@@ -9,7 +9,7 @@ import { Produit } from './produit';
 })
 export class ProduitService {
 
-  private apiServerUrl = environment.serverurl+"Produits";
+  private apiServerUrl = "http://localhost:8081/"+"Produits";
   constructor(private http: HttpClient) { }
 
   public getallProduit () : Observable<Produit[]> 
